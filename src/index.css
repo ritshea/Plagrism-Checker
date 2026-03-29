@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Reset & Base ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Animated Gradient Background ─── */
+.bg-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.15), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(168, 85, 247, 0.12), transparent),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(34, 197, 94, 0.08), transparent),
+    #0f172a;
+}
+
+/* ─── Glassmorphism Card ─── */
+.glass {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.glass-light {
+  background: rgba(241, 245, 249, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Glow Effects ─── */
+.glow-primary {
+  box-shadow:
+    0 0 20px rgba(99, 102, 241, 0.3),
+    0 0 60px rgba(99, 102, 241, 0.1);
+}
+
+.glow-success {
+  box-shadow:
+    0 0 20px rgba(34, 197, 94, 0.3),
+    0 0 60px rgba(34, 197, 94, 0.1);
+}
+
+.glow-warning {
+  box-shadow:
+    0 0 20px rgba(234, 179, 8, 0.3),
+    0 0 60px rgba(234, 179, 8, 0.1);
+}
+
+.glow-danger {
+  box-shadow:
+    0 0 20px rgba(239, 68, 68, 0.3),
+    0 0 60px rgba(239, 68, 68, 0.1);
+}
+
+/* ─── Gradient Text ─── */
+.text-gradient {
+  background: linear-gradient(135deg, #818cf8, #c084fc, #818cf8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 3s linear infinite;
+}
+
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ─── Custom Textarea ─── */
+textarea:focus {
+  outline: none;
+}
+
+textarea::placeholder {
+  color: rgba(148, 163, 184, 0.6);
+}
+
+/* ─── Score Ring Animation ─── */
+.score-ring {
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+/* ─── Hover Lift ─── */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Button Press ─── */
+.btn-press {
+  transition: all 0.2s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ─── Skeleton Shimmer ─── */
+@keyframes skeleton {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 41, 59, 0.5) 25%,
+    rgba(51, 65, 85, 0.5) 50%,
+    rgba(30, 41, 59, 0.5) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+
+/* ─── Particle Background ─── */
+.particles::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(99, 102, 241, 0.4), transparent),
+    radial-gradient(1px 1px at 30% 60%, rgba(168, 85, 247, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 30%, rgba(99, 102, 241, 0.3), transparent),
+    radial-gradient(1px 1px at 70% 80%, rgba(168, 85, 247, 0.2), transparent),
+    radial-gradient(1px 1px at 90% 40%, rgba(99, 102, 241, 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 15% 85%, rgba(129, 140, 248, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 85% 15%, rgba(192, 132, 252, 0.2), transparent);
+  z-index: 0;
+}

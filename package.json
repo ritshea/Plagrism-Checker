@@ -1,29 +1,31 @@
 {
-  "name": "plagiarism-checker-monorepo",
-  "version": "1.0.0",
+  "name": "plagiarism-checker",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Free online plagiarism checker — detect copied content instantly with advanced text similarity analysis",
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
-    "start": "turbo run start",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "test": "turbo run test",
-    "type-check": "turbo run type-check"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "string-similarity": "^4.0.4"
   },
   "devDependencies": {
-    "turbo": "^1.13.4",
-    "prettier": "^3.2.5",
-    "eslint": "^8.57.0"
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.8"
   },
   "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
+    "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@8.15.4"
+  "author": "ritshea",
+  "license": "MIT",
+  "homepage": "https://ritshea.github.io/Plagrism-Checker/"
 }
